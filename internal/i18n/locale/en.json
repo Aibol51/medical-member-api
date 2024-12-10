@@ -1,0 +1,57 @@
+{
+	"common": {
+		"success": "successfully",
+		"failed": "failed",
+		"updateSuccess": "Update successfully",
+		"updateFailed": "Update failed",
+		"createSuccess": "Create successfully",
+		"createFailed": "Create failed",
+		"deleteSuccess": "Delete successfully",
+		"deleteFailed": "Delete failed",
+		"targetNotExist": "Target does not exist",
+		"databaseError": "Database error",
+		"redisError": "Redis error",
+		"permissionDeny": "User does not have permission to access this interface",
+		"constraintError": "Operation failed: Data conflict",
+		"validationError": "Operation failed: Validation failed",
+		"notSingularError": "Operation failed: Data not unique",
+		"serviceUnavailable": "Service is unavailable, please check if the service is enabled",
+		"cacheError": "Cache error"
+	},
+	"init": {
+		"alreadyInit": "The database had been initialized",
+		"initializeIsRunning": "The initialization is running..."
+	},
+	"memberRank": {
+		"normal": "Normal Member",
+		"vip": "VIP",
+		"memberExistError": "There are members under this rank, it is forbidden to delete"
+	},
+	"login": {
+		"loginSuccessTitle": "Login successful",
+		"signupSuccessTitle": "Sign up successful",
+		"signupUserExist": "Username or email address had been registered",
+		"userNotExist": "User does not register",
+		"wrongCaptcha": "Wrong captcha",
+		"wrongPassword": "Wrong Password",
+		"wrongUsernameOrPassword": "Wrong username or password",
+		"requireLogin": "Please log in again",
+		"loginTypeForbidden": "This login method has been disabled by the administrator. Please try another login method",
+		"registerTypeForbidden": "This registration method has been disabled by the administrator. Please try another registration method",
+		"resetTypeForbidden": "This password reset method has been disabled by the administrator. Please try another password reset method",
+		"bindWechatToAccount": "Please log in and bind the wechat account firstly",
+		"alreadyBindWechatToAccount": "This WeChat account had been bound to another account",
+		"expiredAccount": "The account has expired, please contact the administrator",
+		"disabledAccount": "This account has been disabled, please contact the administrator",
+		"userBanned": "Your account has been deactivated or is under review, please contact the administrator."
+	},
+	"mcms": {
+		"email": {
+			"subject": "Verification Code for 【Simple Admin】",
+			"content": "Your verification code is: "
+		}
+	},
+	"captcha": {
+		"mcmsNotEnabled": "MCMS service is not running，make sure that MCMS service's \"Enabled\" configuration is set to \"true\""
+	}
+}

@@ -1,0 +1,106 @@
+import "../base.api"
+
+type (
+    // The response data of appointment information | Appointment信息
+    AppointmentInfo {
+        BaseUUIDInfo
+
+        // Patient name | 患者姓名
+        PatientName  *string `json:"patientName,optional"`
+
+        // Phone number | 联系电话
+        PhoneNumber  *string `json:"phoneNumber,optional"`
+
+        // ID card number | 身份证号
+        IdCard  *string `json:"idCard,optional"`
+
+        // Gender 1:male 2:female | 性别 1:男 2:女
+        Gender  *int32 `json:"gender,optional"`
+
+        // Age | 年龄
+        Age  *int32 `json:"age,optional"`
+
+        // Appointment time | 预约时间
+        AppointmentTime  *int64 `json:"appointmentTime,optional"`
+
+        // Symptoms description | 症状描述
+        Symptoms  *string `json:"symptoms,optional"`
+
+        // Status 1:pending 2:confirmed 3:completed 4:cancelled 5:expired | 状态 1:待确认 2:已确认 3:已完成 4:已取消 5:已过期
+        Status  *int32 `json:"status,optional"`
+
+        // Remarks | 备注信息
+        Remarks  *string `json:"remarks,optional"`
+
+        // User ID | 用户ID
+        UserId  *string `json:"userId,optional"`
+    }
+
+    // The response data of appointment list | Appointment信息列表数据
+    AppointmentListResp {
+        BaseDataInfo
+
+        // Appointment list data | Appointment信息列表数据
+        Data AppointmentListInfo `json:"data"`
+    }
+
+    // The appointment list data | Appointment信息列表数据
+    AppointmentListInfo {
+        BaseListInfo
+
+        // The appointment list data | Appointment信息列表数据
+        Data  []AppointmentInfo  `json:"data"`
+    }
+
+    // Get appointment list request params | Appointment列表请求参数
+    AppointmentListReq {
+        PageInfo
+
+        // PatientName
+        PatientName  *string `json:"patientName,optional"`
+
+        // PhoneNumber
+        PhoneNumber  *string `json:"phoneNumber,optional"`
+
+        // IdCard
+        IdCard  *string `json:"idCard,optional"`
+
+        // User ID
+        UserId  *string `json:"userId,optional"`
+    }
+
+    // The appointment information response | Appointment信息返回体
+    AppointmentInfoResp {
+        BaseDataInfo
+
+        // The appointment information | Appointment信息数据
+        Data AppointmentInfo `json:"data"`
+    }
+)
+
+@server(
+    jwt: Auth
+    group: appointment
+)
+
+service Mms {
+    // Create appointment information | 创建Appointment信息
+    @handler createAppointment
+    post /appointment/create (AppointmentInfo) returns (BaseMsgResp)
+
+    // Update appointment information | 更新Appointment信息
+    @handler updateAppointment
+    post /appointment/update (AppointmentInfo) returns (BaseMsgResp)
+
+    // Delete appointment information | 删除Appointment信息
+    @handler deleteAppointment
+    post /appointment/delete (UUIDsReq) returns (BaseMsgResp)
+
+    // Get appointment list | 获取Appointment信息列表
+    @handler getAppointmentList
+    post /appointment/list (AppointmentListReq) returns (AppointmentListResp)
+
+    // Get appointment by ID | 通过ID获取Appointment信息
+    @handler getAppointmentById
+    post /appointment (UUIDReq) returns (AppointmentInfoResp)
+}

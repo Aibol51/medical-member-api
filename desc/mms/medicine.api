@@ -1,0 +1,83 @@
+import "../base.api"
+
+type (
+    // The response data of medicine information | Medicine信息
+    MedicineInfo {
+        BaseIDInfo
+
+        // Status 1: normal 2: ban | 状态 1 正常 2 禁用
+        Status  *uint32 `json:"status,optional"`
+
+        // Sort Number | 排序编号
+        Sort  *uint32 `json:"sort,optional"`
+
+        // Medicine name | 药品名称
+        Name  *string `json:"name,optional"`
+
+        // Quantity in stock | 库存数量
+        Quantity  *uint32 `json:"quantity,optional"`
+
+        // Description | 药品描述
+        Description  *string `json:"description,optional"`
+
+        // Remarks | 备注信息
+        Remarks  *string `json:"remarks,optional"`
+
+        // Images | 图片路径
+        Images  *string `json:"images,optional"`
+    }
+
+    // The response data of medicine list | Medicine信息列表数据
+    MedicineListResp {
+        BaseDataInfo
+
+        // Medicine list data | Medicine信息列表数据
+        Data MedicineListInfo `json:"data"`
+    }
+
+    // The medicine list data | Medicine信息列表数据
+    MedicineListInfo {
+        BaseListInfo
+
+        // The medicine list data | Medicine信息列表数据
+        Data  []MedicineInfo  `json:"data"`
+    }
+
+    // Get medicine list request params | Medicine列表请求参数
+    MedicineListReq {
+        PageInfo
+
+        // Name
+        Name  *string `json:"name,optional"`
+
+        // Description
+        Description  *string `json:"description,optional"`
+
+        // Remarks
+        Remarks  *string `json:"remarks,optional"`
+    }
+
+    // The medicine information response | Medicine信息返回体
+    MedicineInfoResp {
+        BaseDataInfo
+
+        // The medicine information | Medicine信息数据
+        Data MedicineInfo `json:"data"`
+    }
+)
+
+@server(
+    jwt: Auth
+    group: medicine
+    middleware: Authority
+)
+
+service Mms {
+    // Get medicine list | 获取Medicine信息列表
+    @handler getMedicineList
+    post /medicine/list (MedicineListReq) returns (MedicineListResp)
+
+    // Get medicine by ID | 通过ID获取Medicine信息
+    @handler getMedicineById
+    post /medicine (IDReq) returns (MedicineInfoResp)
+}

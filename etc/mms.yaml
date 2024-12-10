@@ -1,0 +1,87 @@
+Name: mms.api
+Host: 0.0.0.0
+Port: 9104
+Timeout: 30000
+
+Auth:
+  AccessSecret: jS6VKDtsJf3z1n2VKDtsJf3z1n2
+  AccessExpire: 259200
+
+CROSConf:
+  Address: '*'
+
+I18nConf:
+  Dir:
+
+Log:
+  ServiceName: mmsApiLogger
+  Mode: file
+  Path: /home/data/logs/mms/api
+  Level: info
+  Compress: false
+  KeepDays: 7
+  StackCoolDownMillis: 100
+
+Prometheus:
+  Host: 0.0.0.0
+  Port: 4004
+  Path: /metrics
+
+# The database config of casbin
+DatabaseConf:
+  Type: mysql
+  Host: 127.0.0.1
+  Port: 3306
+  DBName: simple_admin
+  Username: root
+  Password: '123456'
+  MaxOpenConn: 100
+  SSLMode: disable
+  CacheTime: 5
+
+I18nConf:
+  Dir:
+
+CasbinConf:
+  ModelText: |
+    [request_definition]
+    r = sub, obj, act
+    [policy_definition]
+    p = sub, obj, act
+    [role_definition]
+    g = _, _
+    [policy_effect]
+    e = some(where (p.eft == allow))
+    [matchers]
+    m = r.sub == p.sub && keyMatch2(r.obj,p.obj) && r.act == p.act
+
+ProjectConf:
+  UseCaptcha: false  # If it is false, you can log in without captchaId and captcha fields
+  DefaultRankId: 1  # Default rankId when register
+  EmailCaptchaExpiredTime: 600 # The expired time for email captcha
+  SmsTemplateId: xxx  # The template id for sms
+  SmsAppId: xxx  # The app id for sms
+  SmsSignName: xxx  # The signature name of sms
+  SmsParamsType: json # the type of sms param, support json and array
+  RegisterVerify: captcha # verify captcha type, support captcha, email, sms, sms_or_email
+  LoginVerify: captcha
+  ResetVerify: email # support  email, sms, sms_or_email
+  WechatMiniOauthProvider: wechat_mini # the oauth provider for wechat mini program
+  AllowInit: true
+
+RedisConf:
+  Host: 127.0.0.1:6379
+  Type: node
+
+MmsRpc:
+  Target: 127.0.0.1:9103
+  Enabled: true
+
+CoreRpc:
+  Target: 127.0.0.1:9101
+  Enabled: true
+
+McmsRpc:
+  Target: 127.0.0.1:9106
+  Enabled: false
+  Timeout: 5000

@@ -1,0 +1,57 @@
+{
+	"common": {
+		"success": "成功",
+		"failed": "失败",
+		"updateSuccess": "更新成功",
+		"updateFailed": "更新失败",
+		"createSuccess": "新建成功",
+		"createFailed": "新建失败",
+		"deleteSuccess": "删除成功",
+		"deleteFailed": "删除失败",
+		"targetNotExist": "目标不存在",
+		"databaseError": "数据库错误",
+		"redisError": "Redis 错误",
+		"permissionDeny": "用户无权限访问此接口",
+		"constraintError": "操作失败: 数据冲突",
+		"validationError": "操作失败: 校验失败",
+		"notSingularError": "操作失败: 数据不唯一",
+		"serviceUnavailable": "服务不可用，请检查服务是否已启用",
+		"cacheError": "缓存出错"
+	},
+	"init": {
+		"initializeIsRunning": "正在初始化...",
+		"alreadyInit": "数据库已被初始化。"
+	},
+	"memberRank": {
+		"normal": "普通会员",
+		"vip": "VIP",
+		"memberExistError": "该等级下存在会员，禁止删除"
+	},
+	"login": {
+		"loginSuccessTitle": "登录成功",
+		"signupSuccessTitle": "注册成功",
+		"signupUserExist": "用户名或者邮箱已被注册",
+		"userNotExist": "用户不存在",
+		"wrongCaptcha": "验证码错误",
+		"wrongUsernameOrPassword": "用户名或密码错误",
+		"wrongPassword": "密码错误",
+		"requireLogin": "请重新登录",
+		"loginTypeForbidden": "此登录方式被管理员关闭，请尝试其他登录方式",
+		"registerTypeForbidden": "此注册方式被管理员关闭，请尝试其他注册方式",
+		"resetTypeForbidden": "此重置密码方式被管理员关闭，请尝试其他重置密码方式",
+		"bindWechatToAccount": "请先登录并绑定微信号",
+		"alreadyBindWechatToAccount": "微信号已被其他账号绑定",
+		"expiredAccount": "账号已过期，请联系管理员",
+		"disabledAccount": "账号已被停用，请联系管理员",
+		"userBanned": "您的账户已停用或在审核中，请联系管理员"
+	},
+	"mcms": {
+		"email": {
+			"subject": "【Simple Admin】 的验证码",
+			"content": "您的验证码为： "
+		}
+	},
+	"captcha": {
+		"mcmsNotEnabled": "MCMS 服务未启动，请确认 MCMS 服务已将 Enabled 配置为 true"
+	}
+}
