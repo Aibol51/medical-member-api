@@ -859,12 +859,24 @@ type MedicineInfo struct {
 	Status *uint32 `json:"status,optional"`
 	// Sort Number | 排序编号
 	Sort *uint32 `json:"sort,optional"`
-	// Medicine name | 药品名称
-	Name *string `json:"name,optional"`
+	// Medicine chinese name | 药品中文名称
+	NameZh *string `json:"nameZh,optional"`
+	// Medicine english name | 药品英文名称
+	NameEn *string `json:"nameEn,optional"`
+	// Medicine russian name | 药品俄语名称
+	NameRu *string `json:"nameRu,optional"`
+	// Medicine kazakh name | 药品哈萨克语名称
+	NameKk *string `json:"nameKk,optional"`
 	// Quantity in stock | 库存数量
 	Quantity *uint32 `json:"quantity,optional"`
-	// Description | 药品描述
-	Description *string `json:"description,optional"`
+	// Description chinese | 药品中文描述
+	DescriptionZh *string `json:"descriptionZh,optional"`
+	// Description english | 药品英文描述
+	DescriptionEn *string `json:"descriptionEn,optional"`
+	// Description russian | 药品俄语描述
+	DescriptionRu *string `json:"descriptionRu,optional"`
+	// Description kazakh | 药品哈萨克语描述
+	DescriptionKk *string `json:"descriptionKk,optional"`
 	// Remarks | 备注信息
 	Remarks *string `json:"remarks,optional"`
 	// Images | 图片路径
@@ -891,12 +903,12 @@ type MedicineListInfo struct {
 // swagger:model MedicineListReq
 type MedicineListReq struct {
 	PageInfo
-	// Name
-	Name *string `json:"name,optional"`
-	// Description
-	Description *string `json:"description,optional"`
-	// Remarks
-	Remarks *string `json:"remarks,optional"`
+	// NameZh
+	NameZh *string `json:"nameZh,optional"`
+	// NameEn
+	NameEn *string `json:"nameEn,optional"`
+	// NameRu
+	NameRu *string `json:"nameRu,optional"`
 }
 
 // The medicine information response | Medicine信息返回体

@@ -366,21 +366,17 @@ func RegisterHandlers(server *rest.Server, serverCtx *svc.ServiceContext) {
 	)
 
 	server.AddRoutes(
-		rest.WithMiddlewares(
-			[]rest.Middleware{serverCtx.Authority},
-			[]rest.Route{
-				{
-					Method:  http.MethodPost,
-					Path:    "/medicine/list",
-					Handler: medicine.GetMedicineListHandler(serverCtx),
-				},
-				{
-					Method:  http.MethodPost,
-					Path:    "/medicine",
-					Handler: medicine.GetMedicineByIdHandler(serverCtx),
-				},
-			}...,
-		),
-		rest.WithJwt(serverCtx.Config.Auth.AccessSecret),
+		[]rest.Route{
+			{
+				Method:  http.MethodPost,
+				Path:    "/medicine/list",
+				Handler: medicine.GetMedicineListHandler(serverCtx),
+			},
+			{
+				Method:  http.MethodPost,
+				Path:    "/medicine",
+				Handler: medicine.GetMedicineByIdHandler(serverCtx),
+			},
+		},
 	)
 }

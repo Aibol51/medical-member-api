@@ -29,9 +29,9 @@ func (l *GetMedicineListLogic) GetMedicineList(req *types.MedicineListReq) (resp
 		&mms.MedicineListReq{
 			Page:        req.Page,
 			PageSize:    req.PageSize,
-			Name: req.Name,
-			Description: req.Description,
-			Remarks: req.Remarks,
+			NameZh: req.NameZh,
+			NameEn: req.NameEn,
+			NameRu: req.NameRu,
 		})
 	if err != nil {
 		return nil, err
@@ -50,9 +50,15 @@ func (l *GetMedicineListLogic) GetMedicineList(req *types.MedicineListReq) (resp
 				},
         	Status: v.Status,
         	Sort: v.Sort,
-        	Name: v.Name,
+        	NameZh: v.NameZh,
+        	NameEn: v.NameEn,
+        	NameRu: v.NameRu,
+        	NameKk: v.NameKk,
         	Quantity: v.Quantity,
-        	Description: v.Description,
+        	DescriptionZh: v.DescriptionZh,
+        	DescriptionEn: v.DescriptionEn,
+        	DescriptionRu: v.DescriptionRu,
+        	DescriptionKk: v.DescriptionKk,
         	Remarks: v.Remarks,
         	Images: v.Images,
 			})
