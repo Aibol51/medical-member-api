@@ -29,6 +29,7 @@ func (l *GetAppointmentListLogic) GetAppointmentList(req *types.AppointmentListR
 		&mms.AppointmentListReq{
 			Page:     req.Page,
 			PageSize: req.PageSize,
+			UserId:   l.ctx.Value("userId").(string),
 		})
 	if err != nil {
 		return nil, err
