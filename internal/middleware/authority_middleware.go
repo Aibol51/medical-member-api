@@ -4,6 +4,7 @@ import (
 	"context"
 	"errors"
 	"net/http"
+	"path"
 
 	"github.com/redis/go-redis/v9"
 	"github.com/suyuan32/simple-admin-common/config"
@@ -36,7 +37,7 @@ func NewAuthorityMiddleware(cbn *casbin.Enforcer, rds redis.UniversalClient, tra
 func (m *AuthorityMiddleware) Handle(next http.HandlerFunc) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		// get the path
-		obj := r.URL.Path
+		obj := path.Clean(r.URL.Path)
 		// get the method
 		act := r.Method
 		// get the role id
