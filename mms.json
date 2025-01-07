@@ -278,62 +278,6 @@
         }
       }
     },
-    "/medicine/create": {
-      "post": {
-        "description": "Create medicine information | 创建Medicine信息",
-        "tags": [
-          "medicine"
-        ],
-        "summary": "Create medicine information | 创建Medicine信息",
-        "operationId": "CreateMedicine",
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "$ref": "#/definitions/MedicineInfo"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "BaseMsgResp",
-            "schema": {
-              "$ref": "#/definitions/BaseMsgResp"
-            }
-          }
-        }
-      }
-    },
-    "/medicine/delete": {
-      "post": {
-        "description": "Delete medicine information | 删除Medicine信息",
-        "tags": [
-          "medicine"
-        ],
-        "summary": "Delete medicine information | 删除Medicine信息",
-        "operationId": "DeleteMedicine",
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "$ref": "#/definitions/IDsReq"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "BaseMsgResp",
-            "schema": {
-              "$ref": "#/definitions/BaseMsgResp"
-            }
-          }
-        }
-      }
-    },
     "/medicine/list": {
       "post": {
         "description": "Get medicine list | 获取Medicine信息列表",
@@ -357,34 +301,6 @@
             "description": "MedicineListResp",
             "schema": {
               "$ref": "#/definitions/MedicineListResp"
-            }
-          }
-        }
-      }
-    },
-    "/medicine/update": {
-      "post": {
-        "description": "Update medicine information | 更新Medicine信息",
-        "tags": [
-          "medicine"
-        ],
-        "summary": "Update medicine information | 更新Medicine信息",
-        "operationId": "UpdateMedicine",
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "$ref": "#/definitions/MedicineInfo"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "BaseMsgResp",
-            "schema": {
-              "$ref": "#/definitions/BaseMsgResp"
             }
           }
         }

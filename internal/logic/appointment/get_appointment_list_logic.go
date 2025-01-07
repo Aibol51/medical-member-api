@@ -27,12 +27,8 @@ func NewGetAppointmentListLogic(ctx context.Context, svcCtx *svc.ServiceContext)
 func (l *GetAppointmentListLogic) GetAppointmentList(req *types.AppointmentListReq) (resp *types.AppointmentListResp, err error) {
 	data, err := l.svcCtx.MmsRpc.GetAppointmentList(l.ctx,
 		&mms.AppointmentListReq{
-			Page:        req.Page,
-			PageSize:    req.PageSize,
-			PatientName: req.PatientName,
-			PhoneNumber: req.PhoneNumber,
-			IdCard:      req.IdCard,
-			UserId:      req.UserId,
+			Page:     req.Page,
+			PageSize: req.PageSize,
 		})
 	if err != nil {
 		return nil, err

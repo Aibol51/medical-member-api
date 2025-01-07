@@ -697,14 +697,6 @@ type AppointmentListInfo struct {
 // swagger:model AppointmentListReq
 type AppointmentListReq struct {
 	PageInfo
-	// PatientName
-	PatientName *string `json:"patientName,optional"`
-	// PhoneNumber
-	PhoneNumber *string `json:"phoneNumber,optional"`
-	// IdCard
-	IdCard *string `json:"idCard,optional"`
-	// User ID
-	UserId *string `json:"userId,optional"`
 }
 
 // The appointment information response | Appointment信息返回体
