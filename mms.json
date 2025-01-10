@@ -250,6 +250,62 @@
         }
       }
     },
+    "/medical_record": {
+      "post": {
+        "description": "Get medical record by ID | 通过ID获取MedicalRecord信息",
+        "tags": [
+          "medicalrecord"
+        ],
+        "summary": "Get medical record by ID | 通过ID获取MedicalRecord信息",
+        "operationId": "GetMedicalRecordById",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/UUIDReq"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "MedicalRecordInfoResp",
+            "schema": {
+              "$ref": "#/definitions/MedicalRecordInfoResp"
+            }
+          }
+        }
+      }
+    },
+    "/medical_record/list": {
+      "post": {
+        "description": "Get medical record list | 获取MedicalRecord信息列表",
+        "tags": [
+          "medicalrecord"
+        ],
+        "summary": "Get medical record list | 获取MedicalRecord信息列表",
+        "operationId": "GetMedicalRecordList",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/MedicalRecordListReq"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "MedicalRecordListResp",
+            "schema": {
+              "$ref": "#/definitions/MedicalRecordListResp"
+            }
+          }
+        }
+      }
+    },
     "/medicine": {
       "post": {
         "description": "Get medicine by ID | 通过ID获取Medicine信息",
@@ -1552,6 +1608,26 @@
     },
     "LoginResp": {
       "description": "The log in response data | 登录返回数据",
+      "x-go-package": "github.com/suyuan32/simple-admin-member-api/internal/types"
+    },
+    "MedicalRecordInfo": {
+      "description": "The response data of medical record information | MedicalRecord信息",
+      "x-go-package": "github.com/suyuan32/simple-admin-member-api/internal/types"
+    },
+    "MedicalRecordInfoResp": {
+      "description": "The medical record information response | MedicalRecord信息返回体",
+      "x-go-package": "github.com/suyuan32/simple-admin-member-api/internal/types"
+    },
+    "MedicalRecordListInfo": {
+      "description": "The medical record list data | MedicalRecord信息列表数据",
+      "x-go-package": "github.com/suyuan32/simple-admin-member-api/internal/types"
+    },
+    "MedicalRecordListReq": {
+      "description": "Get medical record list request params | MedicalRecord列表请求参数",
+      "x-go-package": "github.com/suyuan32/simple-admin-member-api/internal/types"
+    },
+    "MedicalRecordListResp": {
+      "description": "The response data of medical record list | MedicalRecord信息列表数据",
       "x-go-package": "github.com/suyuan32/simple-admin-member-api/internal/types"
     },
     "MedicineInfo": {

@@ -910,3 +910,77 @@ type MedicineInfoResp struct {
 	// The medicine information | Medicine信息数据
 	Data MedicineInfo `json:"data"`
 }
+
+// The response data of medical record information | MedicalRecord信息
+// swagger:model MedicalRecordInfo
+type MedicalRecordInfo struct {
+	BaseUUIDInfo
+	// Patient name | 患者姓名
+	PatientName *string `json:"patientName,optional"`
+	// Phone number | 联系电话
+	PhoneNumber *string `json:"phoneNumber,optional"`
+	// Gender 1:male 2:female | 性别 1:男 2:女
+	Gender *int32 `json:"gender,optional"`
+	// Age | 年龄
+	Age *int32 `json:"age,optional"`
+	// Visit time | 就诊时间
+	VisitTime *int64 `json:"visitTime,optional"`
+	// Diagnosis | 诊断
+	Diagnosis *string `json:"diagnosis,optional"`
+	// Treatment plan | 治疗方案
+	TreatmentPlan *string `json:"treatmentPlan,optional"`
+	// Prescription | 处方
+	Prescription *string `json:"prescription,optional"`
+	// Examination results | 检查结果
+	ExaminationResults *string `json:"examinationResults,optional"`
+	// Doctor's advice | 医嘱
+	DoctorAdvice *string `json:"doctorAdvice,optional"`
+	// Doctor ID | 医生ID
+	DoctorId *string `json:"doctorId,optional"`
+	// Department | 科室
+	Department *string `json:"department,optional"`
+	// Related appointment ID | 关联预约ID
+	AppointmentId *string `json:"appointmentId,optional"`
+	// Remarks | 备注信息
+	Remarks *string `json:"remarks,optional"`
+	// User ID | 用户ID
+	UserId *string `json:"userId,optional"`
+}
+
+// The response data of medical record list | MedicalRecord信息列表数据
+// swagger:model MedicalRecordListResp
+type MedicalRecordListResp struct {
+	BaseDataInfo
+	// MedicalRecord list data | MedicalRecord信息列表数据
+	Data MedicalRecordListInfo `json:"data"`
+}
+
+// The medical record list data | MedicalRecord信息列表数据
+// swagger:model MedicalRecordListInfo
+type MedicalRecordListInfo struct {
+	BaseListInfo
+	// The medical record list data | MedicalRecord信息列表数据
+	Data []MedicalRecordInfo `json:"data"`
+}
+
+// Get medical record list request params | MedicalRecord列表请求参数
+// swagger:model MedicalRecordListReq
+type MedicalRecordListReq struct {
+	PageInfo
+	// PatientName
+	PatientName *string `json:"patientName,optional"`
+	// PhoneNumber
+	PhoneNumber *string `json:"phoneNumber,optional"`
+	// UserId
+	UserId *string `json:"userId,optional"`
+	// AppointmentId
+	AppointmentId *string `json:"appointmentId,optional"`
+}
+
+// The medical record information response | MedicalRecord信息返回体
+// swagger:model MedicalRecordInfoResp
+type MedicalRecordInfoResp struct {
+	BaseDataInfo
+	// The medical record information | MedicalRecord信息数据
+	Data MedicalRecordInfo `json:"data"`
+}

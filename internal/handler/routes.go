@@ -7,6 +7,7 @@ import (
 	appointment "github.com/suyuan32/simple-admin-member-api/internal/handler/appointment"
 	base "github.com/suyuan32/simple-admin-member-api/internal/handler/base"
 	captcha "github.com/suyuan32/simple-admin-member-api/internal/handler/captcha"
+	medicalrecord "github.com/suyuan32/simple-admin-member-api/internal/handler/medicalrecord"
 	medicine "github.com/suyuan32/simple-admin-member-api/internal/handler/medicine"
 	member "github.com/suyuan32/simple-admin-member-api/internal/handler/member"
 	memberrank "github.com/suyuan32/simple-admin-member-api/internal/handler/memberrank"
@@ -378,5 +379,24 @@ func RegisterHandlers(server *rest.Server, serverCtx *svc.ServiceContext) {
 				Handler: medicine.GetMedicineByIdHandler(serverCtx),
 			},
 		},
+	)
+
+	server.AddRoutes(
+		rest.WithMiddlewares(
+			[]rest.Middleware{serverCtx.Authority},
+			[]rest.Route{
+				{
+					Method:  http.MethodPost,
+					Path:    "/medical_record/list",
+					Handler: medicalrecord.GetMedicalRecordListHandler(serverCtx),
+				},
+				{
+					Method:  http.MethodPost,
+					Path:    "/medical_record",
+					Handler: medicalrecord.GetMedicalRecordByIdHandler(serverCtx),
+				},
+			}...,
+		),
+		rest.WithJwt(serverCtx.Config.Auth.AccessSecret),
 	)
 }
