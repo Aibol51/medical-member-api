@@ -96,7 +96,6 @@ type (
 @server(
     jwt: Auth
     group: medicalrecord
-    middleware: Authority
 )
 
 service Mms {
