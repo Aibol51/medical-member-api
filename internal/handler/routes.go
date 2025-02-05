@@ -7,6 +7,7 @@ import (
 	appointment "github.com/suyuan32/simple-admin-member-api/internal/handler/appointment"
 	base "github.com/suyuan32/simple-admin-member-api/internal/handler/base"
 	captcha "github.com/suyuan32/simple-admin-member-api/internal/handler/captcha"
+	expert "github.com/suyuan32/simple-admin-member-api/internal/handler/expert"
 	medicalrecord "github.com/suyuan32/simple-admin-member-api/internal/handler/medicalrecord"
 	medicine "github.com/suyuan32/simple-admin-member-api/internal/handler/medicine"
 	member "github.com/suyuan32/simple-admin-member-api/internal/handler/member"
@@ -15,6 +16,7 @@ import (
 	oauthprovider "github.com/suyuan32/simple-admin-member-api/internal/handler/oauthprovider"
 	publicmember "github.com/suyuan32/simple-admin-member-api/internal/handler/publicmember"
 	publicoauth "github.com/suyuan32/simple-admin-member-api/internal/handler/publicoauth"
+	service "github.com/suyuan32/simple-admin-member-api/internal/handler/service"
 	swiper "github.com/suyuan32/simple-admin-member-api/internal/handler/swiper"
 	token "github.com/suyuan32/simple-admin-member-api/internal/handler/token"
 	vipdemo "github.com/suyuan32/simple-admin-member-api/internal/handler/vipdemo"
@@ -395,5 +397,35 @@ func RegisterHandlers(server *rest.Server, serverCtx *svc.ServiceContext) {
 			},
 		},
 		rest.WithJwt(serverCtx.Config.Auth.AccessSecret),
+	)
+
+	server.AddRoutes(
+		[]rest.Route{
+			{
+				Method:  http.MethodPost,
+				Path:    "/expert/list",
+				Handler: expert.GetExpertListHandler(serverCtx),
+			},
+			{
+				Method:  http.MethodPost,
+				Path:    "/expert",
+				Handler: expert.GetExpertByIdHandler(serverCtx),
+			},
+		},
+	)
+
+	server.AddRoutes(
+		[]rest.Route{
+			{
+				Method:  http.MethodPost,
+				Path:    "/service/list",
+				Handler: service.GetServiceListHandler(serverCtx),
+			},
+			{
+				Method:  http.MethodPost,
+				Path:    "/service",
+				Handler: service.GetServiceByIdHandler(serverCtx),
+			},
+		},
 	)
 }

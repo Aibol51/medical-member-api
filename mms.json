@@ -232,6 +232,146 @@
         }
       }
     },
+    "/expert": {
+      "post": {
+        "description": "Get expert by ID | 通过ID获取Expert信息",
+        "tags": [
+          "expert"
+        ],
+        "summary": "Get expert by ID | 通过ID获取Expert信息",
+        "operationId": "GetExpertById",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/IDReq"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ExpertInfoResp",
+            "schema": {
+              "$ref": "#/definitions/ExpertInfoResp"
+            }
+          }
+        }
+      }
+    },
+    "/expert/create": {
+      "post": {
+        "description": "Create expert information | 创建Expert信息",
+        "tags": [
+          "expert"
+        ],
+        "summary": "Create expert information | 创建Expert信息",
+        "operationId": "CreateExpert",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/ExpertInfo"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "BaseMsgResp",
+            "schema": {
+              "$ref": "#/definitions/BaseMsgResp"
+            }
+          }
+        }
+      }
+    },
+    "/expert/delete": {
+      "post": {
+        "description": "Delete expert information | 删除Expert信息",
+        "tags": [
+          "expert"
+        ],
+        "summary": "Delete expert information | 删除Expert信息",
+        "operationId": "DeleteExpert",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/IDsReq"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "BaseMsgResp",
+            "schema": {
+              "$ref": "#/definitions/BaseMsgResp"
+            }
+          }
+        }
+      }
+    },
+    "/expert/list": {
+      "post": {
+        "description": "Get expert list | 获取Expert信息列表",
+        "tags": [
+          "expert"
+        ],
+        "summary": "Get expert list | 获取Expert信息列表",
+        "operationId": "GetExpertList",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/ExpertListReq"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ExpertListResp",
+            "schema": {
+              "$ref": "#/definitions/ExpertListResp"
+            }
+          }
+        }
+      }
+    },
+    "/expert/update": {
+      "post": {
+        "description": "Update expert information | 更新Expert信息",
+        "tags": [
+          "expert"
+        ],
+        "summary": "Update expert information | 更新Expert信息",
+        "operationId": "UpdateExpert",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/ExpertInfo"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "BaseMsgResp",
+            "schema": {
+              "$ref": "#/definitions/BaseMsgResp"
+            }
+          }
+        }
+      }
+    },
     "/init/database": {
       "get": {
         "description": "Initialize database | 初始化数据库",
@@ -1284,6 +1424,146 @@
         }
       }
     },
+    "/service": {
+      "post": {
+        "description": "Get service by ID | 通过ID获取Service信息",
+        "tags": [
+          "service"
+        ],
+        "summary": "Get service by ID | 通过ID获取Service信息",
+        "operationId": "GetServiceById",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/IDReq"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ServiceInfoResp",
+            "schema": {
+              "$ref": "#/definitions/ServiceInfoResp"
+            }
+          }
+        }
+      }
+    },
+    "/service/create": {
+      "post": {
+        "description": "Create service information | 创建Service信息",
+        "tags": [
+          "service"
+        ],
+        "summary": "Create service information | 创建Service信息",
+        "operationId": "CreateService",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/ServiceInfo"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "BaseMsgResp",
+            "schema": {
+              "$ref": "#/definitions/BaseMsgResp"
+            }
+          }
+        }
+      }
+    },
+    "/service/delete": {
+      "post": {
+        "description": "Delete service information | 删除Service信息",
+        "tags": [
+          "service"
+        ],
+        "summary": "Delete service information | 删除Service信息",
+        "operationId": "DeleteService",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/IDsReq"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "BaseMsgResp",
+            "schema": {
+              "$ref": "#/definitions/BaseMsgResp"
+            }
+          }
+        }
+      }
+    },
+    "/service/list": {
+      "post": {
+        "description": "Get service list | 获取Service信息列表",
+        "tags": [
+          "service"
+        ],
+        "summary": "Get service list | 获取Service信息列表",
+        "operationId": "GetServiceList",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/ServiceListReq"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ServiceListResp",
+            "schema": {
+              "$ref": "#/definitions/ServiceListResp"
+            }
+          }
+        }
+      }
+    },
+    "/service/update": {
+      "post": {
+        "description": "Update service information | 更新Service信息",
+        "tags": [
+          "service"
+        ],
+        "summary": "Update service information | 更新Service信息",
+        "operationId": "UpdateService",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/ServiceInfo"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "BaseMsgResp",
+            "schema": {
+              "$ref": "#/definitions/BaseMsgResp"
+            }
+          }
+        }
+      }
+    },
     "/swiper": {
       "post": {
         "description": "Get swiper by ID | 通过ID获取Swiper信息",
@@ -1574,6 +1854,26 @@
       "description": "The email captcha request | 邮箱验证码请求参数",
       "x-go-package": "github.com/suyuan32/simple-admin-member-api/internal/types"
     },
+    "ExpertInfo": {
+      "description": "The response data of expert information | Expert信息",
+      "x-go-package": "github.com/suyuan32/simple-admin-member-api/internal/types"
+    },
+    "ExpertInfoResp": {
+      "description": "The expert information response | Expert信息返回体",
+      "x-go-package": "github.com/suyuan32/simple-admin-member-api/internal/types"
+    },
+    "ExpertListInfo": {
+      "description": "The expert list data | Expert信息列表数据",
+      "x-go-package": "github.com/suyuan32/simple-admin-member-api/internal/types"
+    },
+    "ExpertListReq": {
+      "description": "Get expert list request params | Expert列表请求参数",
+      "x-go-package": "github.com/suyuan32/simple-admin-member-api/internal/types"
+    },
+    "ExpertListResp": {
+      "description": "The response data of expert list | Expert信息列表数据",
+      "x-go-package": "github.com/suyuan32/simple-admin-member-api/internal/types"
+    },
     "IDPathReq": {
       "description": "Basic ID request | 基础ID地址参数请求",
       "x-go-package": "github.com/suyuan32/simple-admin-member-api/internal/types"
@@ -1768,6 +2068,26 @@
     },
     "ResetPasswordBySmsReq": {
       "description": "Reset password by SMS request | 通过短信重置密码请求",
+      "x-go-package": "github.com/suyuan32/simple-admin-member-api/internal/types"
+    },
+    "ServiceInfo": {
+      "description": "The response data of service information | Service信息",
+      "x-go-package": "github.com/suyuan32/simple-admin-member-api/internal/types"
+    },
+    "ServiceInfoResp": {
+      "description": "The service information response | Service信息返回体",
+      "x-go-package": "github.com/suyuan32/simple-admin-member-api/internal/types"
+    },
+    "ServiceListInfo": {
+      "description": "The service list data | Service信息列表数据",
+      "x-go-package": "github.com/suyuan32/simple-admin-member-api/internal/types"
+    },
+    "ServiceListReq": {
+      "description": "Get service list request params | Service列表请求参数",
+      "x-go-package": "github.com/suyuan32/simple-admin-member-api/internal/types"
+    },
+    "ServiceListResp": {
+      "description": "The response data of service list | Service信息列表数据",
       "x-go-package": "github.com/suyuan32/simple-admin-member-api/internal/types"
     },
     "SmsCaptchaReq": {

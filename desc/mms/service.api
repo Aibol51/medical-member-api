@@ -1,0 +1,93 @@
+import "../base.api"
+
+type (
+    // The response data of service information | Service信息
+    ServiceInfo {
+        BaseIDInfo
+
+        // Status 1: normal 2: ban | 状态 1 正常 2 禁用
+        Status  *uint32 `json:"status,optional"`
+
+        // Sort Number | 排序编号
+        Sort  *uint32 `json:"sort,optional"`
+
+        // Service chinese name | 服务中文名称
+        NameZh  *string `json:"nameZh,optional"`
+
+        // Service english name | 服务英文名称
+        NameEn  *string `json:"nameEn,optional"`
+
+        // Service russian name | 服务俄语名称
+        NameRu  *string `json:"nameRu,optional"`
+
+        // Service kazakh name | 服务哈萨克语名称
+        NameKk  *string `json:"nameKk,optional"`
+
+        // Description chinese | 服务中文描述
+        DescriptionZh  *string `json:"descriptionZh,optional"`
+
+        // Description english | 服务英文描述
+        DescriptionEn  *string `json:"descriptionEn,optional"`
+
+        // Description russian | 服务俄语描述
+        DescriptionRu  *string `json:"descriptionRu,optional"`
+
+        // Description kazakh | 服务哈萨克语描述
+        DescriptionKk  *string `json:"descriptionKk,optional"`
+
+        // Cover image URL | 封面图片URL
+        CoverUrl  *string `json:"coverUrl,optional"`
+    }
+
+    // The response data of service list | Service信息列表数据
+    ServiceListResp {
+        BaseDataInfo
+
+        // Service list data | Service信息列表数据
+        Data ServiceListInfo `json:"data"`
+    }
+
+    // The service list data | Service信息列表数据
+    ServiceListInfo {
+        BaseListInfo
+
+        // The service list data | Service信息列表数据
+        Data  []ServiceInfo  `json:"data"`
+    }
+
+    // Get service list request params | Service列表请求参数
+    ServiceListReq {
+        PageInfo
+
+        // NameZh
+        NameZh  *string `json:"nameZh,optional"`
+
+        // NameEn
+        NameEn  *string `json:"nameEn,optional"`
+
+        // NameRu
+        NameRu  *string `json:"nameRu,optional"`
+    }
+
+    // The service information response | Service信息返回体
+    ServiceInfoResp {
+        BaseDataInfo
+
+        // The service information | Service信息数据
+        Data ServiceInfo `json:"data"`
+    }
+)
+
+@server(
+    group: service
+)
+
+service Mms {
+    // Get service list | 获取Service信息列表
+    @handler getServiceList
+    post /service/list (ServiceListReq) returns (ServiceListResp)
+
+    // Get service by ID | 通过ID获取Service信息
+    @handler getServiceById
+    post /service (IDReq) returns (ServiceInfoResp)
+}

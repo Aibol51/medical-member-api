@@ -984,3 +984,131 @@ type MedicalRecordInfoResp struct {
 	// The medical record information | MedicalRecord信息数据
 	Data MedicalRecordInfo `json:"data"`
 }
+
+// The response data of expert information | Expert信息
+// swagger:model ExpertInfo
+type ExpertInfo struct {
+	BaseIDInfo
+	// Status 1: normal 2: ban | 状态 1 正常 2 禁用
+	Status *uint32 `json:"status,optional"`
+	// Sort Number | 排序编号
+	Sort *uint32 `json:"sort,optional"`
+	// Chinese name | 中文名称
+	NameZh *string `json:"nameZh,optional"`
+	// English name | 英文名称
+	NameEn *string `json:"nameEn,optional"`
+	// Russian name | 俄语名称
+	NameRu *string `json:"nameRu,optional"`
+	// Kazakh name | 哈萨克语名称
+	NameKk *string `json:"nameKk,optional"`
+	// Chinese content | 中文内容
+	ContentZh *string `json:"contentZh,optional"`
+	// English content | 英文内容
+	ContentEn *string `json:"contentEn,optional"`
+	// Russian content | 俄语内容
+	ContentRu *string `json:"contentRu,optional"`
+	// Kazakh content | 哈萨克语内容
+	ContentKk *string `json:"contentKk,optional"`
+	// Cover image URL | 封面图片URL
+	CoverUrl *string `json:"coverUrl,optional"`
+}
+
+// The response data of expert list | Expert信息列表数据
+// swagger:model ExpertListResp
+type ExpertListResp struct {
+	BaseDataInfo
+	// Expert list data | Expert信息列表数据
+	Data ExpertListInfo `json:"data"`
+}
+
+// The expert list data | Expert信息列表数据
+// swagger:model ExpertListInfo
+type ExpertListInfo struct {
+	BaseListInfo
+	// The expert list data | Expert信息列表数据
+	Data []ExpertInfo `json:"data"`
+}
+
+// Get expert list request params | Expert列表请求参数
+// swagger:model ExpertListReq
+type ExpertListReq struct {
+	PageInfo
+	// NameZh
+	NameZh *string `json:"nameZh,optional"`
+	// NameEn
+	NameEn *string `json:"nameEn,optional"`
+	// NameRu
+	NameRu *string `json:"nameRu,optional"`
+}
+
+// The expert information response | Expert信息返回体
+// swagger:model ExpertInfoResp
+type ExpertInfoResp struct {
+	BaseDataInfo
+	// The expert information | Expert信息数据
+	Data ExpertInfo `json:"data"`
+}
+
+// The response data of service information | Service信息
+// swagger:model ServiceInfo
+type ServiceInfo struct {
+	BaseIDInfo
+	// Status 1: normal 2: ban | 状态 1 正常 2 禁用
+	Status *uint32 `json:"status,optional"`
+	// Sort Number | 排序编号
+	Sort *uint32 `json:"sort,optional"`
+	// Service chinese name | 服务中文名称
+	NameZh *string `json:"nameZh,optional"`
+	// Service english name | 服务英文名称
+	NameEn *string `json:"nameEn,optional"`
+	// Service russian name | 服务俄语名称
+	NameRu *string `json:"nameRu,optional"`
+	// Service kazakh name | 服务哈萨克语名称
+	NameKk *string `json:"nameKk,optional"`
+	// Description chinese | 服务中文描述
+	DescriptionZh *string `json:"descriptionZh,optional"`
+	// Description english | 服务英文描述
+	DescriptionEn *string `json:"descriptionEn,optional"`
+	// Description russian | 服务俄语描述
+	DescriptionRu *string `json:"descriptionRu,optional"`
+	// Description kazakh | 服务哈萨克语描述
+	DescriptionKk *string `json:"descriptionKk,optional"`
+	// Cover image URL | 封面图片URL
+	CoverUrl *string `json:"coverUrl,optional"`
+}
+
+// The response data of service list | Service信息列表数据
+// swagger:model ServiceListResp
+type ServiceListResp struct {
+	BaseDataInfo
+	// Service list data | Service信息列表数据
+	Data ServiceListInfo `json:"data"`
+}
+
+// The service list data | Service信息列表数据
+// swagger:model ServiceListInfo
+type ServiceListInfo struct {
+	BaseListInfo
+	// The service list data | Service信息列表数据
+	Data []ServiceInfo `json:"data"`
+}
+
+// Get service list request params | Service列表请求参数
+// swagger:model ServiceListReq
+type ServiceListReq struct {
+	PageInfo
+	// NameZh
+	NameZh *string `json:"nameZh,optional"`
+	// NameEn
+	NameEn *string `json:"nameEn,optional"`
+	// NameRu
+	NameRu *string `json:"nameRu,optional"`
+}
+
+// The service information response | Service信息返回体
+// swagger:model ServiceInfoResp
+type ServiceInfoResp struct {
+	BaseDataInfo
+	// The service information | Service信息数据
+	Data ServiceInfo `json:"data"`
+}
