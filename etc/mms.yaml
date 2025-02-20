@@ -56,7 +56,7 @@ CasbinConf:
     m = r.sub == p.sub && keyMatch2(r.obj,p.obj) && r.act == p.act
 
 ProjectConf:
-  UseCaptcha: false  # If it is false, you can log in without captchaId and captcha fields
+  UseCaptcha: true  # If it is false, you can log in without captchaId and captcha fields
   DefaultRankId: 1  # Default rankId when register
   EmailCaptchaExpiredTime: 600 # The expired time for email captcha
   SmsTemplateId: SMS_476670420  # The template id for sms

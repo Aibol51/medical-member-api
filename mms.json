@@ -260,62 +260,6 @@
         }
       }
     },
-    "/expert/create": {
-      "post": {
-        "description": "Create expert information | 创建Expert信息",
-        "tags": [
-          "expert"
-        ],
-        "summary": "Create expert information | 创建Expert信息",
-        "operationId": "CreateExpert",
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "$ref": "#/definitions/ExpertInfo"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "BaseMsgResp",
-            "schema": {
-              "$ref": "#/definitions/BaseMsgResp"
-            }
-          }
-        }
-      }
-    },
-    "/expert/delete": {
-      "post": {
-        "description": "Delete expert information | 删除Expert信息",
-        "tags": [
-          "expert"
-        ],
-        "summary": "Delete expert information | 删除Expert信息",
-        "operationId": "DeleteExpert",
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "$ref": "#/definitions/IDsReq"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "BaseMsgResp",
-            "schema": {
-              "$ref": "#/definitions/BaseMsgResp"
-            }
-          }
-        }
-      }
-    },
     "/expert/list": {
       "post": {
         "description": "Get expert list | 获取Expert信息列表",
@@ -339,34 +283,6 @@
             "description": "ExpertListResp",
             "schema": {
               "$ref": "#/definitions/ExpertListResp"
-            }
-          }
-        }
-      }
-    },
-    "/expert/update": {
-      "post": {
-        "description": "Update expert information | 更新Expert信息",
-        "tags": [
-          "expert"
-        ],
-        "summary": "Update expert information | 更新Expert信息",
-        "operationId": "UpdateExpert",
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "$ref": "#/definitions/ExpertInfo"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "BaseMsgResp",
-            "schema": {
-              "$ref": "#/definitions/BaseMsgResp"
             }
           }
         }
@@ -1452,62 +1368,6 @@
         }
       }
     },
-    "/service/create": {
-      "post": {
-        "description": "Create service information | 创建Service信息",
-        "tags": [
-          "service"
-        ],
-        "summary": "Create service information | 创建Service信息",
-        "operationId": "CreateService",
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "$ref": "#/definitions/ServiceInfo"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "BaseMsgResp",
-            "schema": {
-              "$ref": "#/definitions/BaseMsgResp"
-            }
-          }
-        }
-      }
-    },
-    "/service/delete": {
-      "post": {
-        "description": "Delete service information | 删除Service信息",
-        "tags": [
-          "service"
-        ],
-        "summary": "Delete service information | 删除Service信息",
-        "operationId": "DeleteService",
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "$ref": "#/definitions/IDsReq"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "BaseMsgResp",
-            "schema": {
-              "$ref": "#/definitions/BaseMsgResp"
-            }
-          }
-        }
-      }
-    },
     "/service/list": {
       "post": {
         "description": "Get service list | 获取Service信息列表",
@@ -1531,34 +1391,6 @@
             "description": "ServiceListResp",
             "schema": {
               "$ref": "#/definitions/ServiceListResp"
-            }
-          }
-        }
-      }
-    },
-    "/service/update": {
-      "post": {
-        "description": "Update service information | 更新Service信息",
-        "tags": [
-          "service"
-        ],
-        "summary": "Update service information | 更新Service信息",
-        "operationId": "UpdateService",
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "$ref": "#/definitions/ServiceInfo"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "BaseMsgResp",
-            "schema": {
-              "$ref": "#/definitions/BaseMsgResp"
             }
           }
         }

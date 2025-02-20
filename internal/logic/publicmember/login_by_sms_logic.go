@@ -2,6 +2,8 @@ package publicmember
 
 import (
 	"context"
+	"time"
+
 	"github.com/suyuan32/simple-admin-common/config"
 	"github.com/suyuan32/simple-admin-common/enum/common"
 	"github.com/suyuan32/simple-admin-common/i18n"
@@ -9,7 +11,6 @@ import (
 	"github.com/suyuan32/simple-admin-common/utils/pointy"
 	"github.com/suyuan32/simple-admin-member-rpc/types/mms"
 	"github.com/zeromicro/go-zero/core/errorx"
-	"time"
 
 	"github.com/suyuan32/simple-admin-member-api/internal/svc"
 	"github.com/suyuan32/simple-admin-member-api/internal/types"
