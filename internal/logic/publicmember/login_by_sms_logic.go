@@ -58,10 +58,7 @@ func (l *LoginBySmsLogic) LoginBySms(req *types.LoginBySmsReq) (resp *types.Logi
 			return nil, errorx.NewCodeInvalidArgumentError("login.userNotExist")
 		}
 
-		err = l.svcCtx.Redis.Del(l.ctx, config.RedisCaptchaPrefix+req.PhoneNumber).Err()
-		if err != nil {
-			logx.Errorw("failed to delete captcha in redis", logx.Field("detail", err))
-		}
+
 
 		// check whether is expired
 		if (time.Now().UnixMilli() - *memberData.Data[0].ExpiredAt) >= 0 {
@@ -109,6 +106,11 @@ func (l *LoginBySmsLogic) LoginBySms(req *types.LoginBySmsReq) (resp *types.Logi
 			return nil, err
 		}
 
+		err = l.svcCtx.Redis.Del(l.ctx, config.RedisCaptchaPrefix+req.PhoneNumber).Err()
+		if err != nil {
+			logx.Errorw("failed to delete captcha in redis", logx.Field("detail", err))
+		}
+
 		return &types.LoginResp{
 			BaseDataInfo: types.BaseDataInfo{
 				Code: 0,
@@ -117,14 +119,16 @@ func (l *LoginBySmsLogic) LoginBySms(req *types.LoginBySmsReq) (resp *types.Logi
 			},
 			Data: types.LoginInfo{
 				UserId:   *memberData.Data[0].Id,
-				RankId:   *memberData.Data[0].RankCode,
+				// RankId:   *memberData.Data[0].RankCode,
 				Token:    token,
 				Expire:   uint64(expiredAt),
-				Avatar:   *memberData.Data[0].Avatar,
+				// Avatar:   *memberData.Data[0].Avatar,
 				Nickname: *memberData.Data[0].Nickname,
 				RankName: l.svcCtx.Trans.Trans(l.ctx, MemberRankData[*memberData.Data[0].RankId]),
 			},
 		}, nil
+
+		
 	}
 
 	return nil, errorx.NewInvalidArgumentError("login.wrongCaptcha")
