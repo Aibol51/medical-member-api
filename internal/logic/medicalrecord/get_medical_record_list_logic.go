@@ -3,7 +3,7 @@ package medicalrecord
 import (
 	"context"
 
-	"github.com/suyuan32/simple-admin-member-api/internal/svc"
+    "github.com/suyuan32/simple-admin-member-api/internal/svc"
 	"github.com/suyuan32/simple-admin-member-api/internal/types"
 	"github.com/suyuan32/simple-admin-member-rpc/types/mms"
 
@@ -27,12 +27,11 @@ func NewGetMedicalRecordListLogic(ctx context.Context, svcCtx *svc.ServiceContex
 func (l *GetMedicalRecordListLogic) GetMedicalRecordList(req *types.MedicalRecordListReq) (resp *types.MedicalRecordListResp, err error) {
 	data, err := l.svcCtx.MmsRpc.GetMedicalRecordList(l.ctx,
 		&mms.MedicalRecordListReq{
-			Page:          req.Page,
-			PageSize:      req.PageSize,
-			PatientName:   req.PatientName,
-			PhoneNumber:   req.PhoneNumber,
-			UserId:        l.ctx.Value("userId").(string),
-			AppointmentId: req.AppointmentId,
+			Page:        req.Page,
+			PageSize:    req.PageSize,
+			PatientName: req.PatientName,
+			IdCardNumber: req.IdCardNumber,
+			PhoneNumber: req.PhoneNumber,
 		})
 	if err != nil {
 		return nil, err
@@ -49,21 +48,33 @@ func (l *GetMedicalRecordListLogic) GetMedicalRecordList(req *types.MedicalRecor
 					CreatedAt: v.CreatedAt,
 					UpdatedAt: v.UpdatedAt,
 				},
-				PatientName:        v.PatientName,
-				PhoneNumber:        v.PhoneNumber,
-				Gender:             v.Gender,
-				Age:                v.Age,
-				VisitTime:          v.VisitTime,
-				Diagnosis:          v.Diagnosis,
-				TreatmentPlan:      v.TreatmentPlan,
-				Prescription:       v.Prescription,
-				ExaminationResults: v.ExaminationResults,
-				DoctorAdvice:       v.DoctorAdvice,
-				DoctorId:           v.DoctorId,
-				Department:         v.Department,
-				AppointmentId:      v.AppointmentId,
-				Remarks:            v.Remarks,
-				UserId:             v.UserId,
+        	PatientName: v.PatientName,
+        	Gender: v.Gender,
+        	Age: v.Age,
+        	IdCardNumber: v.IdCardNumber,
+        	PhoneNumber: v.PhoneNumber,
+        	ChiefComplaint: v.ChiefComplaint,
+        	PresentIllness: v.PresentIllness,
+        	PastHistory: v.PastHistory,
+        	SmokingHistory: v.SmokingHistory,
+        	DrinkingHistory: v.DrinkingHistory,
+        	AllergyHistory: v.AllergyHistory,
+        	HeartRate: v.HeartRate,
+        	BloodPressure: v.BloodPressure,
+        	OxygenSaturation: v.OxygenSaturation,
+        	BloodGlucose: v.BloodGlucose,
+        	Weight: v.Weight,
+        	WaistCircumference: v.WaistCircumference,
+        	BodyFat: v.BodyFat,
+        	Diagnosis: v.Diagnosis,
+        	DietTherapy: v.DietTherapy,
+        	ExerciseTherapy: v.ExerciseTherapy,
+        	MedicationTherapy: v.MedicationTherapy,
+        	TreatmentPlan: v.TreatmentPlan,
+        	DoctorId: v.DoctorId,
+        	AppointmentId: v.AppointmentId,
+        	Remarks: v.Remarks,
+        	UserId: v.UserId,
 			})
 	}
 	return resp, nil

@@ -5,11 +5,8 @@ type (
     MedicalRecordInfo {
         BaseUUIDInfo
 
-        // Patient name | 患者姓名
+        // Patient name | 姓名
         PatientName  *string `json:"patientName,optional"`
-
-        // Phone number | 联系电话
-        PhoneNumber  *string `json:"phoneNumber,optional"`
 
         // Gender 1:male 2:female | 性别 1:男 2:女
         Gender  *int32 `json:"gender,optional"`
@@ -17,29 +14,68 @@ type (
         // Age | 年龄
         Age  *int32 `json:"age,optional"`
 
-        // Visit time | 就诊时间
-        VisitTime  *int64 `json:"visitTime,optional"`
+        // ID card number | 身份证号
+        IdCardNumber  *string `json:"idCardNumber,optional"`
+
+        // Phone number | 电话
+        PhoneNumber  *string `json:"phoneNumber,optional"`
+
+        // Chief complaint | 主诉
+        ChiefComplaint  *string `json:"chiefComplaint,optional"`
+
+        // Present illness history | 现病史
+        PresentIllness  *string `json:"presentIllness,optional"`
+
+        // Past history | 既往史
+        PastHistory  *string `json:"pastHistory,optional"`
+
+        // Smoking history | 吸烟史: 1-无, 2-有, 3-一般, 4-多, 5-已戒
+        SmokingHistory  *int32 `json:"smokingHistory,optional"`
+
+        // Drinking history | 饮酒史: 1-无, 2-有, 3-一般, 4-多, 5-已戒
+        DrinkingHistory  *int32 `json:"drinkingHistory,optional"`
+
+        // Allergy history | 过敏史: 1-无, 2-有
+        AllergyHistory  *int32 `json:"allergyHistory,optional"`
+
+        // Heart rate (beats/min) | 心率(次/分)
+        HeartRate  *int32 `json:"heartRate,optional"`
+
+        // Blood pressure (mmHg) | 血压(mmHg)
+        BloodPressure  *string `json:"bloodPressure,optional"`
+
+        // Oxygen saturation (%) | 指脉氧(%)
+        OxygenSaturation  *float64 `json:"oxygenSaturation,optional"`
+
+        // Blood glucose (mmol/L) | 血糖(mmol/L)
+        BloodGlucose  *float64 `json:"bloodGlucose,optional"`
+
+        // Weight (kg) | 体重(kg)
+        Weight  *float64 `json:"weight,optional"`
+
+        // Waist circumference (cm) | 腰围(cm)
+        WaistCircumference  *float64 `json:"waistCircumference,optional"`
+
+        // Body fat percentage (%) | 体脂数(%)
+        BodyFat  *float64 `json:"bodyFat,optional"`
 
         // Diagnosis | 诊断
         Diagnosis  *string `json:"diagnosis,optional"`
 
-        // Treatment plan | 治疗方案
+        // Diet therapy | 饮食治疗
+        DietTherapy  *int32 `json:"dietTherapy,optional"`
+
+        // Exercise therapy | 运动治疗
+        ExerciseTherapy  *int32 `json:"exerciseTherapy,optional"`
+
+        // Medication therapy | 药物治疗
+        MedicationTherapy  *int32 `json:"medicationTherapy,optional"`
+
+        // Overall treatment plan | 综合治疗方案
         TreatmentPlan  *string `json:"treatmentPlan,optional"`
-
-        // Prescription | 处方
-        Prescription  *string `json:"prescription,optional"`
-
-        // Examination results | 检查结果
-        ExaminationResults  *string `json:"examinationResults,optional"`
-
-        // Doctor's advice | 医嘱
-        DoctorAdvice  *string `json:"doctorAdvice,optional"`
 
         // Doctor ID | 医生ID
         DoctorId  *string `json:"doctorId,optional"`
-
-        // Department | 科室
-        Department  *string `json:"department,optional"`
 
         // Related appointment ID | 关联预约ID
         AppointmentId  *string `json:"appointmentId,optional"`
@@ -74,14 +110,11 @@ type (
         // PatientName
         PatientName  *string `json:"patientName,optional"`
 
+        // IdCardNumber
+        IdCardNumber  *string `json:"idCardNumber,optional"`
+
         // PhoneNumber
         PhoneNumber  *string `json:"phoneNumber,optional"`
-
-        // UserId
-        UserId  *string `json:"userId,optional"`
-
-        // AppointmentId
-        AppointmentId  *string `json:"appointmentId,optional"`
     }
 
     // The medical record information response | MedicalRecord信息返回体
@@ -99,7 +132,7 @@ type (
 )
 
 service Mms {
-
+    // Create medical record information | 创建MedicalRecord信息
     // Get medical record list | 获取MedicalRecord信息列表
     @handler getMedicalRecordList
     post /medical_record/list (MedicalRecordListReq) returns (MedicalRecordListResp)
